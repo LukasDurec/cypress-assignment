@@ -1,6 +1,7 @@
 ///<reference types="cypress" />
 
 describe('Heroes Page', () => {
+    
     it('loading webpage', () => {
       cy.visit('/heroes')
       cy.get('h1').contains("Tour of Heroes")
@@ -10,7 +11,6 @@ describe('Heroes Page', () => {
     it('navigate to Dashboard',() =>{
         cy.get("a").contains("Dashboard").click()
         cy.url().should('include', '/dashboard')
-        cy.visit("/heroes")
     })
 
     it('add new hero with empty text',() =>{

@@ -1,16 +1,10 @@
 ///<reference types="cypress" />
-
 describe('Heroes Page', () => {
-    
     it('loading webpage', () => {
       cy.visit('/heroes')
       cy.get('h1').contains("Tour of Heroes")
       cy.get('h2').contains("My Heroes")
       cy.contains("HeroService: fetched heroes").should("be.visible")
-    })
-    it('navigate to Dashboard',() =>{
-        cy.get("a").contains("Dashboard").click()
-        cy.url().should('include', '/dashboard')
     })
 
     it('add new hero with empty text',() =>{
@@ -39,6 +33,11 @@ describe('Heroes Page', () => {
         cy.get("h2").contains("Messages").should("be.visible")
         cy.get("button.clear").contains("Clear messages").click()
         cy.get("h2").contains("Messages").should("not.exist")
+    })
+
+    it('navigate to Dashboard',() =>{
+        cy.get("a").contains("Dashboard").click()
+        cy.url().should('include', '/dashboard')
     })
 
   })

@@ -30,5 +30,10 @@ describe('Hero Details', () => {
         cy.get('app-hero-detail > :nth-child(1) > :nth-child(5)').click()
         cy.contains("Dr. Nice EDITED").should("be.visible")
      })
+     it('clear messages',() =>{
+        cy.get("h2").contains("Messages").should("be.visible")
+        cy.get("button.clear").contains("Clear messages").click()
+        cy.get("h2").contains("Messages").should("not.exist")
+    })
     
   })
